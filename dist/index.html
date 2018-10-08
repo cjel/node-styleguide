@@ -4,24 +4,26 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Styleguide</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-		<link href="main.01729086cbdcd481b80d.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<link href="main.ce296f338508117b0c46.css" rel="stylesheet">
 	</head>
 
 	<body>
-		<div class="stlgd__Tnmhgxzba3xYU8ZY" id="stlgd__3XACym3yvPb8TdFy">
-			<script type="text/x-template" id="main-menu-link-template"><a href="#" v-on:click.prevent="greet">Link</a></script>
-			<nav class="stlgd__1ztXO_zCXclwgwua">
-				<ul>
-					<li><a href="" is="main-menu-link">Link</a></li>
-				</ul>
-			</nav>
-			<section class="stlgd__1A-tYJhab5_FKsr1">
-				<div class="stlgd__LIn3j0FHj69VCDkp">one</div>
-				<div class="two">two</div>
-			</section>
+		<div id="page">
+			<div class="pagecontent">
+				<script type="text/x-template" id="main-menu-link-template"><a href="#" v-on:click.prevent="updateMainContent"><slot></slot></a></script>
+				<nav class="menu-main">
+					<ul>
+						<li><a href="samples/samples1/sample1.html" is="main-menu-link">Link 1</a></li>
+						<li><a href="samples/samples1/sample2.html" is="main-menu-link">Link 2</a></li>
+					</ul>
+				</nav>
+				<section class="main">
+					<div class="iframe-container"><iframe v-bind:src="mainContentFile"></iframe></div>
+				</section>
+			</div>
 		</div>
-		<script type="text/javascript" src="main.9210fbbf8f09f7ddf79d.js"></script>
+		<script type="text/javascript" src="main.f96e562e31fc17de7c2a.js"></script>
 	</body>
 
 </html>

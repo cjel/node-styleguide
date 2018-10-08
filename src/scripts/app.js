@@ -9,9 +9,9 @@ Vue.component('main-menu-link', {
     }
   },
   methods: {
-    greet: function() {
-      //console.log(this.$el.href)
+    updateMainContent: function() {
       this.$root.mainContentFile = this.$el.href
+      console.log(this.$root.mainContentFile)
     },
   },
   template: '#main-menu-link-template',
@@ -23,16 +23,16 @@ var app = new Vue({
     mainContentFile: 'samples/file1.html'
   },
   methods: {
-    greet: function() {
-    },
+  },
+  mounted: function() {
+    console.log('running')
   },
   watch: {
-    mainContentFile: function(fileNew, fileOld) {
-      console.log(fileNew)
-      axios.get(fileNew)
-        .then(function (response) {
-          console.log(response);
-        })
-    },
+    //mainContentFile: function(fileNew, fileOld) {
+    //  axios.get(fileNew)
+    //    .then(function (response) {
+    //      console.log(response);
+    //    })
+    //},
   },
 })

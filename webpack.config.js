@@ -89,13 +89,13 @@ module.exports = env => {
                     keepClosingSlash: true,
                   },
                 },
-                {
-                  loader: 'replace-classes-loader',
-                  options: {
-                    replace: ifProd(true, false),
-                    file: path.resolve(__dirname, 'src/styles/styleguide.sass') + '?replaceclasses',
-                  },
-                },
+                //{
+                //  loader: 'replace-classes-loader',
+                //  options: {
+                //    replace: ifProd(true, false),
+                //    file: path.resolve(__dirname, 'src/styles/styleguide.sass') + '?replaceclasses',
+                //  },
+                //},
                 {
                   loader: 'pug-plain-loader',
                   options: {
@@ -142,9 +142,7 @@ module.exports = env => {
                 {
                   loader: 'css-loader',
                   options: {
-                    modules: ifProd(true, false),
-                    //sourceMap: true,
-                    //importLoaders: 1,
+                    //modules: ifProd(true, false),
                     localIdentName: localIdentName,
                   }
                 },
@@ -162,9 +160,7 @@ module.exports = env => {
                 {
                   loader: 'css-loader',
                   options: {
-                    modules: ifProd(true, false),
-                    //sourceMap: true,
-                    //importLoaders: 1,
+                    //modules: ifProd(true, false),
                     localIdentName: localIdentName,
                   }
                 },

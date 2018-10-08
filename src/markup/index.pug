@@ -5,18 +5,19 @@ html(lang="en")
     title Styleguide
     meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
   body
-    #page.pagecontent
-      //-#noscript-warning(v-if="false")
-        p Sie müssen JavaScript in Ihrem Browser aktivieren um alle Funktionen der Seite nutzen zu können.
-      script(type="text/x-template" id="main-menu-link-template")
-        a(href="#" v-on:click.prevent="greet")
-          slot
-      nav.menu-main
-        ul
-          li
-            a(href="samples/samples1/sample1.html" is="main-menu-link") Link
-          li
-            a(href="samples/samples1/sample2.html" is="main-menu-link") Link 2
-      section.main
-        .iframe-container
-          iframe(v-bind:src="mainContentFile")
+    #page
+      .pagecontent
+        //-#noscript-warning(v-if="false")
+          p Sie müssen JavaScript in Ihrem Browser aktivieren um alle Funktionen der Seite nutzen zu können.
+        script(type="text/x-template" id="main-menu-link-template")
+          a(href="#" v-on:click.prevent="updateMainContent")
+            slot
+        nav.menu-main
+          ul
+            li
+              a(href="samples/samples1/sample1.html" is="main-menu-link") Link 1
+            li
+              a(href="samples/samples1/sample2.html" is="main-menu-link") Link 2
+        section.main
+          .iframe-container
+            iframe(v-bind:src="mainContentFile")
