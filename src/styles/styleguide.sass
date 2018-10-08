@@ -1,5 +1,22 @@
+@import '~bulma/sass/utilities/initial-variables'
+@import 'variables'
+@import '~bulma/bulma'
+
+html,
+body,
+#page
+  height: 100%
+  overflow: hidden
+
+//#page
+  overflow: auto
+
+@import 'appcontent'
+
+@import 'components/*'
+
 .one
   color: blue
 
-.two
+\:global(.foo)
   color: green

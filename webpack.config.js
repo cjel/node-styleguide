@@ -27,22 +27,22 @@ module.exports = env => {
   }
   var htmlPlugins = []
 
-  //for (key in fileMapping) {
-  //  srcFiles[key] = find.fileSync(/\.pug$/, __dirname + markupRoot + '/' + fileMapping[key])
-  //  srcFiles[key].forEach(function(element){
-  //    var templateFile = element.replace(path.resolve(__dirname), '')
-  //    var filename = templateFile.substring(templateFile.lastIndexOf("/") + 1, templateFile.lastIndexOf("."));
-  //    htmlPlugins.push(
-  //      new HtmlWebpackPlugin({
-  //        chunksSortMode: 'dependency',
-  //        filename: path.resolve(__dirname, 'dist/samples/' + fileMapping[key] + '/' + filename + '.html'),
-  //        filetype: 'pug',
-  //        inject: false,
-  //        template: '.' + templateFile,
-  //      })
-  //    )
-  //  })
-  //}
+  for (key in fileMapping) {
+    srcFiles[key] = find.fileSync(/\.pug$/, __dirname + markupRoot + '/' + fileMapping[key])
+    srcFiles[key].forEach(function(element){
+      var templateFile = element.replace(path.resolve(__dirname), '')
+      var filename = templateFile.substring(templateFile.lastIndexOf("/") + 1, templateFile.lastIndexOf("."));
+      htmlPlugins.push(
+        new HtmlWebpackPlugin({
+          chunksSortMode: 'dependency',
+          filename: path.resolve(__dirname, 'dist/samples/' + fileMapping[key] + '/' + filename + '.html'),
+          filetype: 'pug',
+          inject: false,
+          template: '.' + templateFile,
+        })
+      )
+    })
+  }
   htmlPlugins.push(
     new HtmlWebpackPlugin({
       chunksSortMode: 'dependency',
