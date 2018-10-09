@@ -205,7 +205,7 @@ module.exports = env => {
       }),
       ifProd(
         new MiniCssExtractPlugin({
-          filename: "[name].[contenthash].css",
+          filename: "styleguide.[contenthash].css",
           chunkFilename: "[id].css"
         })
       ),
@@ -241,11 +241,14 @@ module.exports = env => {
       ifProd(
         new CleanWebpackPlugin(['dist/'])
       ),
-      //new CopyWebpackPlugin([
-      //  'frontend/api.php',
-      //]),
+      new CopyWebpackPlugin([
+        'src/plugin.js',
+      ]),
     ])),
-    entry: './src/scripts/app.js',
+    performance: {
+      hints: false,
+    },
+    entry: './src/scripts/styleguide.js',
     resolve: {
       alias: {
         'vue$': 'vue/dist/vue.esm.js',
@@ -259,7 +262,7 @@ module.exports = env => {
     //  modules: ['node_modules', path.resolve(__dirname, 'loaders')]
     //},
     output: {
-      filename: '[name].[chunkhash].js',
+      filename: 'styleguide.[chunkhash].js',
       path: path.resolve(__dirname, 'dist')
     },
     optimization: {
