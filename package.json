@@ -2,7 +2,7 @@
   "name": "styleguide",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/plugin.js",
   "scripts": {
     "dev": "nodemon --legacy-watch --watch webpack.config.js --exec 'webpack-dev-server --config webpack.config.js --env.dev --display-modules'",
     "build": "webpack --config webpack.config.js --env.prod -p --display-modules"
