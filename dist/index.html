@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<title>Styleguide</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-		<link href="styleguide.ce296f338508117b0c46.css" rel="stylesheet">
+		<link href="styleguide.9e31dea713c77a7be1f5.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -13,18 +13,14 @@
 			<div class="pagecontent">
 				<script type="text/x-template" id="main-menu-link-template"><a href="#" v-on:click.prevent="updateMainContent"><slot></slot></a></script>
 				<nav class="menu-main">
-					<ul>
-						<li><a href="samples/samples1/sample1.html" is="main-menu-link">Link 1</a></li>
-						<li><a href="samples/samples1/sample2.html" is="main-menu-link">Link 2</a></li>
-						<li><a href="templates/default.html" is="main-menu-link">Link 2</a></li>
-					</ul>
+					<li v-for="(key, value) in files"><a v-bind:href="value" is="main-menu-link">{{ key }}</a></li>
 				</nav>
 				<section class="main">
 					<div class="iframe-container"><iframe v-bind:src="mainContentFile"></iframe></div>
 				</section>
 			</div>
 		</div>
-		<script type="text/javascript" src="styleguide.9ddaa4892584e3259e89.js"></script>
+		<script type="text/javascript" src="styleguide.d7c1bb0fb21fa249bed2.js"></script>
 	</body>
 
 </html>

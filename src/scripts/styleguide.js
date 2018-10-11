@@ -17,15 +17,26 @@ Vue.component('main-menu-link', {
   template: '#main-menu-link-template',
 })
 
+//import styleguidefiles from './styleguidefiles.json'
+
 var app = new Vue({
   el: '#page',
   data: {
-    mainContentFile: 'samples/file1.html'
+    mainContentFile: 'samples/file1.html',
+    //files: styleguidefiles,
+    files: {},
+    test: 'foo',
   },
   methods: {
   },
   mounted: function() {
     console.log('running')
+    var that = this
+    axios.get('styleguidefiles.json')
+      .then(function(res) {
+        console.log(res.data)
+        that.files = res.data
+      })
   },
   watch: {
     //mainContentFile: function(fileNew, fileOld) {

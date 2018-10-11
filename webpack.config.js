@@ -243,6 +243,7 @@ module.exports = env => {
       ),
       new CopyWebpackPlugin([
         'src/plugin.js',
+        'src/data/styleguidefiles.json',
       ]),
     ])),
     performance: {

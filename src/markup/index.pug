@@ -13,7 +13,9 @@ html(lang="en")
           a(href="#" v-on:click.prevent="updateMainContent")
             slot
         nav.menu-main
-          ul
+          li(v-for="(key, value) in files")
+            a(v-bind:href="value" is="main-menu-link") {{ key }}
+          //-ul
             li
               a(href="samples/samples1/sample1.html" is="main-menu-link") Link 1
             li
