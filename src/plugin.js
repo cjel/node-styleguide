@@ -7,7 +7,7 @@ function StyleguidePlugin(options) {
 
 StyleguidePlugin.prototype.apply = function(compiler) {
 
-  compiler.plugin('entryOption', function() {
+  compiler.hooks.run.tapAsync('MyPlugin', (compiler, callback) => {
     new CopyWebpackPlugin([
       {
         from: __dirname + '/index.html',
@@ -24,6 +24,7 @@ StyleguidePlugin.prototype.apply = function(compiler) {
         flatten: true,
       },
     ]).apply(compiler)
+    callback();
   });
 
   compiler.hooks.emit.tapAsync('StyleguidePlugin', (compilation, callback) => {
