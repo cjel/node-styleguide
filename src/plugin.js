@@ -1,18 +1,17 @@
-const CopyWebpackPlugin             = require('copy-webpack-plugin')
-const filedataStore                 = require('pug-contentswitch-loader/lib/filedata-store')
-const path                          = require('path')
+const CopyWebpackPlugin             = require('copy-webpack-plugin');
+const filedataStore                 = require('pug-contentswitch-loader/lib/filedata-store');
+const path                          = require('path');
 
 function StyleguidePlugin(options) {
-  this.options = options
+  this.options = options;
   if (!('root' in options)) {
-    this.options['root'] = 'styleguide'
+    this.options['root'] = 'styleguide';
   }
 }
 
 StyleguidePlugin.prototype.apply = function(compiler) {
 
   compiler.hooks.afterPlugins.tap('StyleguidePlugin', (compilation) => {
-    //console.log(this.options['root'])
     new CopyWebpackPlugin([
       {
         from: __dirname + '/index.html',
@@ -28,14 +27,14 @@ StyleguidePlugin.prototype.apply = function(compiler) {
         to: this.options['root'] + '/',
         flatten: true,
       },
-    ]).apply(compiler)
+    ]).apply(compiler);
     //callback();
   });
 
   compiler.hooks.emit.tapAsync('StyleguidePlugin', (compilation, callback) => {
-    var pathRelative = path.relative(compiler.options.output.path, this.options['root'])
-    titledata = filedataStore.getTitles()
-    titledata = JSON.stringify(titledata)
+    var pathRelative = path.relative(compiler.options.output.path, this.options['root']);
+    titledata = filedataStore.getTitles();
+    titledata = JSON.stringify(titledata);
     compilation.assets[pathRelative + '/styleguidefiles.json'] = {
       source: function() {
         return titledata
@@ -43,10 +42,10 @@ StyleguidePlugin.prototype.apply = function(compiler) {
       size: function() {
         return titledata.length
       }
-    }
-    callback()
+    };
+    callback();
   })
 
 }
 
-module.exports = StyleguidePlugin
+module.exports = StyleguidePlugin;
