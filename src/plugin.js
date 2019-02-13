@@ -32,10 +32,10 @@ StyleguidePlugin.prototype.apply = function(compiler) {
   });
 
   compiler.hooks.emit.tapAsync('StyleguidePlugin', (compilation, callback) => {
-    var pathRelative = path.relative(compiler.options.output.path, this.options['root']);
+    //var pathRelative = path.relative(compiler.options.output.path, this.options['root']);
     titledata = filedataStore.getTitles();
     titledata = JSON.stringify(titledata);
-    compilation.assets[pathRelative + '/styleguidefiles.json'] = {
+    compilation.assets[this.options['root'] + '/styleguidefiles.json'] = {
       source: function() {
         return titledata
       },
