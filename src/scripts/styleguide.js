@@ -19,7 +19,7 @@ Vue.component('button-toggle-menu', {
 Vue.component('main-menu', {
   data: function(){
     return {
-      open: true,
+      open: false
     }
   },
   methods: {
