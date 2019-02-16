@@ -1,9 +1,39 @@
 .menu-main
 
-  background-color: #373737
-  display: none
-  height: 100%
+  background-color: #B0B0B0
+  padding-top: 50px
+  padding-left: 10px
+  padding-right: 10px
+  //display: none
+  position: absolute
+  left: 0
+  width: 100%
+  top: 0
+  min-height: 100%
+  z-index: 100
+  max-height: 100vh
+  overflow-y: auto
+
+  ul
+    list-style-type: none
+
+  li
+    display: block
+    width: 100%
+
+    a
+      color: #3c3c3c
+      display: block
+      width: 100%
+      padding: 1px 10px
+      margin-bottom: 1px
+      border: 1px dashed #3c3c3c
+
+      &:hover
+        background: linear-gradient(to right, #b0b0b0, #3c3c3c)
+
+
 
   +desktop
-    display: block
     flex: 0 0 300px
+    position: static

@@ -7,21 +7,13 @@ html(lang="en")
   body
     #page
       .pagecontent
-        //-#noscript-warning(v-if="false")
-          p Sie müssen JavaScript in Ihrem Browser aktivieren um alle Funktionen der Seite nutzen zu können.
-        script(type="text/x-template" id="main-menu-link-template")
+        script(type="text/x-template" id="main-menu-link-template" v-pre)
           a(href="#" v-on:click.prevent="updateMainContent")
             slot
-        nav.menu-main
+        a(is="button-toggle-menu" href="#") &#9776;
+        nav.menu-main(is="main-menu" ref="main-menu")
           li(v-for="(key, value) in files")
             a(v-bind:href="value" is="main-menu-link") {{ key }}
-          //-ul
-            li
-              a(href="samples/samples1/sample1.html" is="main-menu-link") Link 1
-            li
-              a(href="samples/samples1/sample2.html" is="main-menu-link") Link 2
-            li
-              a(href="templates/default.html" is="main-menu-link") Link 2
         section.main
           .iframe-container
             iframe(v-bind:src="mainContentFile")

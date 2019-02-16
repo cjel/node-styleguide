@@ -5,14 +5,14 @@
 		<meta charset="utf-8">
 		<title>Styleguide</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-		<link href="styleguide.9e31dea713c77a7be1f5.css" rel="stylesheet">
+		<link href="styleguide.d951a9ed6839df54a3d2.css" rel="stylesheet">
 	</head>
 
 	<body>
 		<div id="page">
 			<div class="pagecontent">
-				<script type="text/x-template" id="main-menu-link-template"><a href="#" v-on:click.prevent="updateMainContent"><slot></slot></a></script>
-				<nav class="menu-main">
+				<script type="text/x-template" id="main-menu-link-template" v-pre><a href="#" v-on:click.prevent="updateMainContent"><slot></slot></a></script><a is="button-toggle-menu" href="#">&#9776;</a>
+				<nav class="menu-main" is="main-menu" ref="main-menu">
 					<li v-for="(key, value) in files"><a v-bind:href="value" is="main-menu-link">{{ key }}</a></li>
 				</nav>
 				<section class="main">
@@ -20,7 +20,7 @@
 				</section>
 			</div>
 		</div>
-		<script type="text/javascript" src="styleguide.76a83d3218e4302e86a4.js"></script>
+		<script type="text/javascript" src="styleguide.3d986b2e5fba3d3a665b.js"></script>
 	</body>
 
 </html>
