@@ -19,7 +19,7 @@ Vue.component('button-toggle-menu', {
 Vue.component('main-menu', {
   data: function(){
     return {
-      open: false
+      open: false,
     }
   },
   methods: {
@@ -36,13 +36,13 @@ Vue.component('main-menu-link', {
   methods: {
     updateMainContent: function() {
       this.$root.mainContentFile = this.$el.href;
-      if (window.innerWidth < 1088) {
+      if (window.innerWidth < 1088 && this.$root.keepMenuOpen == false) {
         this.$root.$refs['main-menu'].open = false;
       }
       console.log(this.$root.mainContentFile);
     }
   },
-  template: '#main-menu-link-template'
+  template: '#main-menu-link-template',
 });
 
 var app = new Vue({
@@ -50,6 +50,7 @@ var app = new Vue({
   data: {
     mainContentFile: 'about:blank',
     files: {},
+    keepMenuOpen: false,
   },
   methods: {
   },
@@ -60,5 +61,8 @@ var app = new Vue({
         console.log(res.data)
         that.files = res.data
       })
+    if (window.location.hash == "#keepopen") {
+      this.keepMenuOpen = true;
+    }
   },
 })

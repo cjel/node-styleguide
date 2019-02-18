@@ -5,7 +5,7 @@ html(lang="en")
     title Styleguide
     meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
   body
-    #page
+    #page(v-bind:class="{ keepopen:keepMenuOpen }")
       .pagecontent
         script(type="text/x-template" id="main-menu-link-template" v-pre)
           a(href="#" v-on:click.prevent="updateMainContent")
