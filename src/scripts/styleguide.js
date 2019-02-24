@@ -24,6 +24,11 @@ Vue.component('main-menu', {
   },
   methods: {
   },
+  mounted: function() {
+    if (window.location.hash == "#keepopen") {
+      this.open = true;
+    }
+  },
   template: '<div v-if="open"><slot></slot></div>'
 });
 
