@@ -60,12 +60,16 @@ var app = new Vue({
   methods: {
   },
   mounted: function() {
-    var that = this
-    axios.get('styleguidefiles.json')
+    var that = this;
+    var baseUrl = window.location.toString();
+    if (baseUrl.substr(-1) != '/') {
+      baseUrl += '/';
+    }
+    axios.get(baseUrl + 'styleguidefiles.json')
       .then(function(res) {
-        console.log(res.data)
-        that.files = res.data
-      })
+        console.log(res.data);
+        that.files = res.data;
+      });
     if (window.location.hash == "#keepopen") {
       this.keepMenuOpen = true;
     }
