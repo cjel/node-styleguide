@@ -28,14 +28,16 @@ StyleguidePlugin.prototype.apply = function(compiler) {
         flatten: true,
       },
     ]).apply(compiler);
-    //callback();
   });
 
   compiler.hooks.emit.tapAsync('StyleguidePlugin', (compilation, callback) => {
-    //var pathRelative = path.relative(compiler.options.output.path, this.options['root']);
     titledata = filedataStore.getTitles();
     titledata = JSON.stringify(titledata);
-    compilation.assets[this.options['root'] + '/styleguidefiles.json'] = {
+    var styleguidefilesFilename = path.relative(
+      this.options['root'],
+      path.join(this.options['root'], 'styleguide', 'styleguidefiles.json')
+    );
+    compilation.assets[styleguidefilesFilename] = {
       source: function() {
         return titledata
       },
@@ -44,8 +46,7 @@ StyleguidePlugin.prototype.apply = function(compiler) {
       }
     };
     callback();
-  })
-
+  });
 }
 
 module.exports = StyleguidePlugin;
