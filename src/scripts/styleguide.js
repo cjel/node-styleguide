@@ -61,10 +61,12 @@ var app = new Vue({
   },
   mounted: function() {
     var that = this;
-    var baseUrl = window.location.toString();
+    var baseUrl = window.location.pathname.toString();
+    baseUrl = baseUrl.replace(/\/[^/]*\.[^/]*/, '');
     if (baseUrl.substr(-1) != '/') {
       baseUrl += '/';
     }
+    console.log(baseUrl);
     axios.get(baseUrl + 'styleguidefiles.json')
       .then(function(res) {
         console.log(res.data);
