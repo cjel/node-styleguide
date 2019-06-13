@@ -60,21 +60,31 @@ module.exports = env => {
     module: {
       rules: [
         {
-          include: [path.resolve(__dirname, 'src/components')],
-          loader: 'babel-loader',
-          options: {
-            plugins: ['syntax-dynamic-import'],
-            presets: [
-              [
-                'env',
-                {
-                  modules: false
-                }
-              ]
-            ]
-          },
-          test: /\.js$/
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            }
+          }
         },
+        //{
+        //  include: [path.resolve(__dirname, 'src/components')],
+        //  loader: 'babel-loader',
+        //  options: {
+        //    plugins: ['syntax-dynamic-import'],
+        //    presets: [
+        //      [
+        //        'env',
+        //        {
+        //          modules: false
+        //        }
+        //      ]
+        //    ]
+        //  },
+        //  test: /\.js$/
+        //},
         {
           test: /\.pug$/,
           oneOf: [
@@ -249,7 +259,10 @@ module.exports = env => {
     performance: {
       hints: false,
     },
-    entry: './src/scripts/styleguide.js',
+    entry: [
+      '@babel/polyfill',
+      './src/scripts/styleguide.js',
+    ],
     resolve: {
       alias: {
         'vue$': 'vue/dist/vue.esm.js',
