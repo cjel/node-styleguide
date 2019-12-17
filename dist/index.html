@@ -5,13 +5,13 @@
 		<meta charset="utf-8">
 		<title>Styleguide</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-		<link href="styleguide.7c1cdb18f12993609abf.css" rel="stylesheet">
+		<link href="styleguide.546dbb3d03f00e24c8cd.css" rel="stylesheet">
 	</head>
 
 	<body>
 		<div id="page" v-bind:class="{ keepopen:keepMenuOpen }">
 			<div class="pagecontent">
-				<script type="text/x-template" id="main-menu-link-template" v-pre><a href="#" v-on:click.prevent="updateMainContent"><slot></slot></a></script><a is="button-toggle-menu" href="#">&#9776;</a>
+				<script type="text/x-template" id="main-menu-link-template" v-pre><a href="#" v-on:click.exact.prevent="updateMainContent" v-on:click.shift.exact.prevent="navigateTo"><slot></slot></a></script><a is="button-toggle-menu" href="#">&#9776;</a>
 				<nav class="menu-main" is="main-menu" ref="main-menu">
 					<li v-for="(key, value) in files"><a v-bind:href="value" is="main-menu-link">{{ key }}</a></li>
 				</nav>
@@ -20,7 +20,7 @@
 				</section>
 			</div>
 		</div>
-		<script type="text/javascript" src="styleguide.81c35914ae46fd8f7363.js"></script>
+		<script type="text/javascript" src="styleguide.2d046e34dcaf496e1252.js"></script>
 	</body>
 
 </html>

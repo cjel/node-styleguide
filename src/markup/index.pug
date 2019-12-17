@@ -8,7 +8,8 @@ html(lang="en")
     #page(v-bind:class="{ keepopen:keepMenuOpen }")
       .pagecontent
         script(type="text/x-template" id="main-menu-link-template" v-pre)
-          a(href="#" v-on:click.prevent="updateMainContent")
+          a(href="#" v-on:click.exact.prevent="updateMainContent"
+            v-on:click.shift.exact.prevent="navigateTo")
             slot
         a(is="button-toggle-menu" href="#") &#9776;
         nav.menu-main(is="main-menu" ref="main-menu")

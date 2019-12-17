@@ -45,6 +45,9 @@ Vue.component('main-menu-link', {
         this.$root.$refs['main-menu'].open = false;
       }
       console.log(this.$root.mainContentFile);
+    },
+    navigateTo: function() {
+      window.location = this.$el.href;
     }
   },
   template: '#main-menu-link-template',
